@@ -1,0 +1,24 @@
+@keyframes animate{
+	0%,100%{
+	}
+	50%{
+		transform:translateY(6px);
+	}
+}
+
+.validPass{
+	color:red;
+	font-size: 0.7rem;
+}
+
+.wrong{
+	border:2px solid red;
+}
+
+.avatar{
+	animation:animate 1.5s ease-in-out infinite;
+}
+
+#rePass{
+	border: solid 1px red;
+}

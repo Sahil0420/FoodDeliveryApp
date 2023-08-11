@@ -1,0 +1,65 @@
+root {
+  --bg-color: #222337;
+  --text-color: #fff;
+  --main-color: #29fd56;
+}
+
+.center{
+	display: flex;
+	flex-wrap:wrap;
+	align-items:center;
+	justify-items: center;
+	flex-direction: column;
+	gap:1rem;	
+}
+
+.bolder{
+	font-weight: bolder;
+}
+
+.innerCenter{
+	display: flex;
+	gap:1rem;
+}
+
+.totprice{
+	font-weight: bolder;
+}
+
+select{
+	background:var(--bg-color);
+	color:var(--main-color);
+	border-radius:0.5rem;
+	text-align: center;
+	width:6rem;
+	height: 2rem;
+	margin:1rem;
+	flex:1;
+}
+
+select:hover{
+	background-color: #00a0d2;
+	color: #fff;
+} 
+
+select:focus{
+	background-color: #0da0d2;
+	color: #fff;
+}
+
+.cart{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cart button{
+	padding: 0.5rem 1rem;
+	border-radius:6px;
+	border: none;
+	background-color: var(--bg-color);
+	color: var(--main-color);;
+}
+
+.cart i{
+}

@@ -1,0 +1,76 @@
+sabse pehle maine npx se react project create kya 
+
+	[command : npx create-react-app appname]
+
+Uske baad maine usmein src folder mein app.js ko edit karke empty kiya or fir src ke andar ke components folder create kiya jisme maine apne banaye huye components
+ko save kiya jo ki jsx mein likhe huye hai . Eg. Header , Footer , Carousel etc
+
+uske baad maine k screen folder create kiye jisme maine different web pages create kiye hai Eg. home , sign up , login etc
+
+uske baad maine un components or screens ko import kiya App.js mein 
+
+uske baad main Routes module ko import kiya
+
+	[ command : import {BrowserRouter as Router , Routes , Route } from 'react-router-dom']
+
+Router module ki madad se aap frontend ke pages ko ek doosre par edirect karwa sakte ho
+
+isko likhne ke liye ek format hota hai 
+
+		eg. 	
+				<Router>
+					<Routes>
+						<Route exact path="/" element = {<Home/>}></Route>
+					</Routes>
+				</Router>
+
+		// is example mein maine path = '/' use kiya hai or element = {<Home/>} use kiya hai jska matlab yeh hai ki jab mera path / hoga tab mai Home webpage mein present ho jaaunga
+
+Yeh sab karne baad maine backend ke liye shalafood directory ke andar backend naam  folder create kiya 
+
+jismein ki maine sabse pehle node modules ko import kiya npm init command se package.json file banayi or fir node modules ko download karne ke liye npm package.json	command ka use kiya. iske liye internet ki jarurat hoti hai 
+
+
+so we get the node modules in the backend directory now we can continue ko create our backend files using expressJs
+
+we are going to use mongodb as a database , so that much be installed on your system or you can use atlas. 
+
+to make our work easier rather than writing long api queries we can use mongoose module which makes it easier to work with mongo database .
+
+nwo you have to create the main or root file for the backend mostly name used for this file is index.js .
+
+then i created a db.js fiel in which i have written a code to make a connection with database using the following code and exported it so that i can use this code whenever i want.
+
+		[
+			const mongoose = require ('mongoose')
+			module.exports = mongoConnection = async() => {
+				try{
+					await mongoose.connect('mongodb://localhost:27017/{databaseName}')
+					console.log('connected')
+				}catch(err){
+					console.error(err)
+				}
+			}
+		]
+
+your backend code can be distributed in many parts but at the end you have to import them into a single file or where they were required .
+
+First of all I created two folders {models} for in which is saveed the schema for the database . MongoDB is a Object-Oriented Document Based Database which stores data in the JSON or BSON form . Second folder {Routes} is made for backend code for particular pages like for sign up page and login page and these pages are connected to their respective frontend pages . 
+
+i have installled many packages to built this project . Those modules or packages can be instaled 
+
+Login.js is my frontend for the login page here i have written teh login form code and then 
+
+i have created handle submit async function which will handle the form submission here i have to make fetch request to database
+
+	API = [ const response = await fetch('http://localhost:4000/api/loginuser' , {
+		methdd : 'POST' , headers:{'Content-Type' : 'application/json'},
+		body:JSON.stringify({email : credentials.email , password : ccredentials.password})
+		})
+	]
+
+	this function is fetching the local database via backend code which is hosted by the backend on localhost:4000/api/loginuser . /loginuser will retrun a promise { response } which will be captured in const response variable
+
+	const json = await response.json()
+
+	it will retrieve the json data { In this case {success : true or success : false} }  
